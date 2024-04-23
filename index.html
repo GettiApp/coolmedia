@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoolMedia</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .upload-container {
+      margin-bottom: 20px;
+    }
+
+    .upload-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .upload-container input[type="file"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .video-container {
+      border: 5px solid red;
+      padding: 10px;
+      margin-top: 20px;
+      width: 400px;
+    }
+
+    .video-container video {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>CoolMedia - Anonymous Video Uploads</h1>
+  <div class="upload-container">
+    <label for="video-file">Choose a video:</label>
+    <input type="file" id="video-file" accept="video/*">
+  </div>
+  <div class="upload-container">
+    <label for="video-title">Video Title:</label>
+    <input type="text" id="video-title">
+  </div>
+  <button id="upload-button">Upload</button>
+  <div class="video-container" id="video-display">
+
+  </div>
+
+  <script>
+    const videoFile = document.getElementById('video-file');
+    const videoTitle = document.getElementById('video-title');
+    const uploadButton = document.getElementById('upload-button');
+    const videoDisplay = document.getElementById('video-display');
+
+    uploadButton.addEventListener('click', function() {
+      // Simulate video upload (for demonstration purposes only)
+      const title = videoTitle.value;
+      const videoElement = document.createElement('video');
+      videoElement.controls = true;
+      videoElement.textContent = "Video is uploading..."; // Placeholder text
+
+      // Replace with actual video upload logic if implementing a server-side component
+
+      const videoDisplayContainer = document.createElement('div');
+      videoDisplayContainer.classList.add('video-container');
+      videoDisplayContainer.innerHTML = `<h3>${title}</h3>`;
+      videoDisplayContainer.appendChild(videoElement);
+      videoDisplay.innerHTML = '';
+      videoDisplay.appendChild(videoDisplayContainer);
+    });
+  </script>
+</body>
+</html>
